@@ -2,6 +2,7 @@
 using BepInEx.Logging;
 using HarmonyLib;
 using no00ob.Mod.LethalCompany.MattBracken.Patches;
+using UnityEngine;
 
 namespace no00ob.Mod.LethalCompany.MattBracken
 {
@@ -28,6 +29,7 @@ namespace no00ob.Mod.LethalCompany.MattBracken
             logger = BepInEx.Logging.Logger.CreateLogSource(PLUGIN_GUID);
 
             logger.LogInfo($"Plugin {PLUGIN_GUID} is loaded!");
+
 
             PatchAll();
         }
