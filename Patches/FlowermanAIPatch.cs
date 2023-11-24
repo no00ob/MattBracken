@@ -1,9 +1,6 @@
 ﻿using HarmonyLib;
 using UnityEngine;
-using LC_API.BundleAPI;
-using static UnityEngine.UI.DefaultControls;
-using BepInEx.Configuration;
-using System;
+using LCSoundTool;
 
 namespace no00ob.Mod.LethalCompany.MattBracken.Patches
 {
@@ -25,22 +22,23 @@ namespace no00ob.Mod.LethalCompany.MattBracken.Patches
             __instance.gameObject.transform.Find("FlowermanModel").Find("AnimContainer").GetChild(1).GetChild(0).GetChild(2).GetChild(2).GetChild(10).GetChild(0).GetChild(0).GetChild(2).gameObject.SetActive(false);
             __instance.gameObject.transform.Find("FlowermanModel").Find("AnimContainer").GetChild(1).GetChild(0).GetChild(2).GetChild(2).GetChild(10).GetChild(0).GetChild(0).GetChild(3).gameObject.SetActive(false);
             // Instantiate our model prefab
-            GameObject val = GameObject.Instantiate(BundleLoader.GetLoadedAsset<GameObject>("assets/prefabs/Matt.prefab"), __instance.gameObject.transform);
+            GameObject val = GameObject.Instantiate((GameObject)Plugin.Instance.resources[0].LoadAsset("assets/prefabs/Matt.prefab"), __instance.gameObject.transform); //BundleLoader.GetLoadedAsset<GameObject>("assets/prefabs/Matt.prefab")
             // Set our models scale and position
             val.transform.localScale = new Vector3(3f,3f,3f);
             val.transform.localPosition = Vector3.zero;//new Vector3(0f, 1.5f, 0f);
 
             // Change audio clips to our custom ones
-            __instance.creatureAngerVoice.clip = BundleLoader.GetLoadedAsset<AudioClip>("assets/audio/angry.wav");
-            __instance.crackNeckSFX = BundleLoader.GetLoadedAsset<AudioClip>("assets/audio/bye.wav");
-            __instance.crackNeckAudio.clip = BundleLoader.GetLoadedAsset<AudioClip>("assets/audio/bye.wav");
-            __instance.dieSFX = BundleLoader.GetLoadedAsset<AudioClip>("assets/audio/scream.wav");
-            __instance.enemyType.overrideVentSFX = BundleLoader.GetLoadedAsset<AudioClip>("assets/audio/laugh.wav");
-            __instance.enemyType.hitBodySFX = BundleLoader.GetLoadedAsset<AudioClip>("assets/audio/disgust.wav");
-            __instance.enemyType.stunSFX = BundleLoader.GetLoadedAsset<AudioClip>("assets/audio/crying.wav");
+            __instance.creatureAngerVoice.clip = (AudioClip)Plugin.Instance.resources[0].LoadAsset("assets/audio/angry.wav");//BundleLoader.GetLoadedAsset<AudioClip>("assets/audio/angry.wav");
+            __instance.crackNeckSFX = (AudioClip)Plugin.Instance.resources[0].LoadAsset("assets/audio/bye.wav");
+            __instance.crackNeckAudio.clip = (AudioClip)Plugin.Instance.resources[0].LoadAsset("assets/audio/bye.wav");
+            __instance.dieSFX = (AudioClip)Plugin.Instance.resources[0].LoadAsset("assets/audio/scream.wav");
+            __instance.enemyType.overrideVentSFX = (AudioClip)Plugin.Instance.resources[0].LoadAsset("assets/audio/pop.wav");
+            __instance.enemyType.hitBodySFX = (AudioClip)Plugin.Instance.resources[0].LoadAsset("assets/audio/disgust.wav");
+            __instance.enemyType.stunSFX = (AudioClip)Plugin.Instance.resources[0].LoadAsset("assets/audio/crying.wav");
+            SoundTool.ReplaceAudioClip("Found1", (AudioClip)Plugin.Instance.resources[0].LoadAsset("assets/audio/laugh.wav"));
 
             // Debuggin to figure out brackens other sounds.
-            for (int i = 0; i < __instance.enemyBehaviourStates.Length; i++)
+            /*for (int i = 0; i < __instance.enemyBehaviourStates.Length; i++)
             {
                 if (__instance.enemyBehaviourStates[i] != null)
                 {
@@ -139,7 +137,7 @@ namespace no00ob.Mod.LethalCompany.MattBracken.Patches
             else
             {
                 Plugin.Instance.logger.LogDebug($"Enemy {__instance.gameObject.name} has no defined enemy type or enemy type is null");
-            }
+            }*/
         }
     }
 }

@@ -42,8 +42,8 @@
         <Reference Include="Unity.Netcode.Runtime">
           <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Lethal Company\Lethal Company_Data\Managed\Unity.Netcode.Runtime.dll</HintPath>
         </Reference>
-        <Reference Include="LC_API">
-          <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Lethal Company\BepInEx\plugins\LC_API.dll</HintPath>
+        <Reference Include="LC_SoundTool">
+          <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Lethal Company\BepInEx\plugins\LC_SoundTool.dll</HintPath>
         </Reference>
     </ItemGroup>
 </Project>
