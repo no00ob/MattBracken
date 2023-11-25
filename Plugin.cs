@@ -13,7 +13,7 @@ namespace no00ob.Mod.LethalCompany.MattBracken
     {
         private const string PLUGIN_GUID = "MattBracken";
         private const string PLUGIN_NAME = "Matt Bracken";
-        private const string PLUGIN_VERSION = "1.0.0";
+        private const string PLUGIN_VERSION = "1.1.0";
 
         private readonly Harmony harmony = new Harmony(PLUGIN_GUID);
 
