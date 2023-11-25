@@ -10,7 +10,7 @@ namespace no00ob.Mod.LethalCompany.MattBracken.Patches
         [HarmonyPostfix]
         public static void ReplaceWithMatt(FlowermanAI __instance)
         {
-            Plugin.Instance.logger.LogDebug($"MATT HAS SPAWNED!\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-");
+            Plugin.Instance.logger.LogDebug($"MATT HAS SPAWNED!\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-");
 
             // Destroy the Flowerman's 3D models mesh renderer so we can get rid of the original 3D model
             UnityEngine.Object.Destroy(__instance.gameObject.transform.Find("FlowermanModel").Find("LOD1").gameObject.GetComponent<SkinnedMeshRenderer>());
