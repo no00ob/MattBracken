@@ -13,7 +13,6 @@ Install like any other BepInEx mod. You can get a built version of the mod from 
 ```
   \GAME_LOCATION\Lethal Company\BepInEx\plugins
 ```
-Require's the following API to be installed as well: https://thunderstore.io/c/lethal-company/p/no00ob/LCSoundTool/
 
 ## FAQ
 
