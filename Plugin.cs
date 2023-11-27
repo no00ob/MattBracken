@@ -13,7 +13,7 @@ namespace no00ob.Mod.LethalCompany.MattBracken
     {
         private const string PLUGIN_GUID = "MattBracken";
         private const string PLUGIN_NAME = "Matt Bracken";
-        private const string PLUGIN_VERSION = "1.1.0";
+        private const string PLUGIN_VERSION = "1.1.1";
 
         private readonly Harmony harmony = new Harmony(PLUGIN_GUID);
 
@@ -21,8 +21,7 @@ namespace no00ob.Mod.LethalCompany.MattBracken
 
         internal ManualLogSource logger;
 
-        private static string[] resourceFileNames = new string[2] { "Matt", "mattbracken" };
-        internal AssetBundle[] resources;
+        internal AssetBundle bundle;
 
         private void Awake()
         {
@@ -35,33 +34,13 @@ namespace no00ob.Mod.LethalCompany.MattBracken
 
             logger.LogInfo($"Plugin {PLUGIN_GUID} is loaded!");
 
-            resources = new AssetBundle[resourceFileNames.Length - 1];
-
-            for (int i = 1; i < resourceFileNames.Length; i++)
-            {
-                // build absolute path
-                var path = Path.Combine(Environment.CurrentDirectory, "BepInEx", "plugins", resourceFileNames[0], resourceFileNames[i]);
-
-                logger.LogDebug($"Loading AssetBundle {resourceFileNames[i]} from {path}");
-
-                resources[i - 1] = AssetBundle.LoadFromFile(path);
-
-                if (resources != null)
-                {
-                    logger.LogDebug($"Succesfully loaded AssetBundle {resourceFileNames[i]}!");
-                }
-                else
-                {
-                    logger.LogError($"Failed to load AssetBundle {resourceFileNames[i]} from path {path}!");
-                }
-            }
+            bundle = AssetBundle.LoadFromMemory(MattBrackenMod.Properties.Resources.mattbracken);
 
             PatchAll();
         }
 
         private void PatchAll()
         {
-            harmony.PatchAll(typeof(Plugin));
             harmony.PatchAll(typeof(FlowermanAIPatch));
             harmony.PatchAll(typeof(TerminalPatch));
         }

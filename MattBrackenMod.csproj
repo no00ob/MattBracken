@@ -4,7 +4,7 @@
         <TargetFramework>netstandard2.1</TargetFramework>
         <AssemblyName>Matt</AssemblyName>
         <Description>Changes the Bracken (Flowerman) to Matt.</Description>
-        <Version>1.0.0</Version>
+        <Version>1.1.1</Version>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
@@ -25,13 +25,13 @@
             <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Lethal Company\Lethal Company_Data\Managed\Assembly-CSharp.dll</HintPath> <!-- Edit this to the actual location -->
         </Reference>
         <Reference Include="BepInEx">
-          <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Lethal Company\BepInEx\core\BepInEx.dll</HintPath>
+          <HintPath>C:\Users\Aki\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Personal\BepInEx\core\BepInEx.dll</HintPath>
         </Reference>
         <Reference Include="BepInEx.Harmony">
-          <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Lethal Company\BepInEx\core\BepInEx.Harmony.dll</HintPath>
+          <HintPath>C:\Users\Aki\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Personal\BepInEx\core\BepInEx.Harmony.dll</HintPath>
         </Reference>
         <Reference Include="BepInEx.Preloader">
-          <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Lethal Company\BepInEx\core\BepInEx.Preloader.dll</HintPath>
+          <HintPath>C:\Users\Aki\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Personal\BepInEx\core\BepInEx.Preloader.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine">
             <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Lethal Company\Lethal Company_Data\Managed\UnityEngine.dll</HintPath> <!-- Edit this to the actual location -->
@@ -42,5 +42,20 @@
         <Reference Include="Unity.Netcode.Runtime">
           <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Lethal Company\Lethal Company_Data\Managed\Unity.Netcode.Runtime.dll</HintPath>
         </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Properties\Resources.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Resources.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="Properties\Resources.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
 </Project>
